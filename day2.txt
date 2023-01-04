@@ -1,0 +1,162 @@
+Loop
+    It is a feature that facilitates the execution of a set of instructions repeatedly until a certain condition holds false 
+- for
+    is appropriate when you know in advance how many times the loop will be executed
+    for(intitialization; Test Expression; Updation)
+    {
+        //Body of the loop (statements)
+    }
+
+- while (entry controlled loop)
+    intitialization
+    while(Test Expression)
+    {
+        //Body of the loop
+        ipdation
+    }
+- do while (exit controlled loop)
+    intitialization
+    do
+    {
+        //body of the loop
+        updation
+    }
+    while(Test Expression);
+    when the user is only aware of the terminating condition but the number of times the loop is going to run is not known
+- for each Loop
+    for(identifier:collection)
+    {
+        //statements
+    }
+write a program for Fibonacci series 
+
+    **
+
+*       *
+
+*       *
+
+*  **   *
+
+*       *
+
+*       *
+
+*       *
+
+break statement
+    it is used to terminate or end  an ongoing process
+continue statement
+    it is generally used in loop blocks.
+    when you want to skip based on a condition and proceed with the rest of the execution.
+
+management wants to call students on alternate days and in groups
+divide the students based on roll numbers,
+            even in one group and odd in the other,
+consider there are 4 working days in a week, starting from Day 0 to Day 3.
+call students with odd roll number on even days
+call students with even roll number on odd days
+print the roll numbers of the students called day wise
+
+Day 0
+1,3,5,7,9,11
+
+Day 1
+2,4,6,8,10
+
+exit() method
+    exit the program at any point by terminating running JVM, based on some condition or programming logic
+
+    exit(0) - successful termination
+
+    exit(1) - unsuccessful termination
+
+    exit(-1) - unsuccessful termination with exception
+Methods 
+    It is a block of code that performs a specific function.
+
+Access Modifier
+    it provides rights to access the particular piece of code
+    default - package level
+
+    public - Global
+
+
+    private - only inside the class
+
+    protected - access by the inherited class
+
+    class declaration can not be private or protected
+
+    methods always declared as public
+
+    Access Modifier     within class    within package   subclass outside package    outside package
+
+    private                 yes             no                  no                          no
+
+    protected               yes             yes                 yes                         no 
+
+    default                 yes             yes                 no                          no
+
+    public                  yes             yes                 yes                         yes
+
+
+Array 
+    An array is a homogenous non-primitive data type used to save multiple elements (having the same data type) in a particular variable.
+        the values of primitive data types are stores in a memory location
+        in the case of objects, it's stored in heap memory.
+
+        int mark1=70;
+        int mark2=84;
+        int matk3=63;
+        int mark4=91;
+        int mark5=75;
+
+        marks[0]=70; -- index 
+        marks[1]=84;
+        marks[2]=63;
+        marks[3]=91;
+        marks[4]=75;
+
+        The index always starts from 0 by default.
+
+        int []marks={70,84,63,91,75}
+
+        The new keyword is used to create array and make array as reference variable.
+        int []marks=new int[]{70,84,63,91,75};
+        marks[0]=70;
+        marks[1]=84;
+        int []marks=new int[5];
+
+        Types of Array
+            Single-dimensional
+                Array having only one subscript or one dimension
+            Multi-dimensional
+                An Array of arrays that represents multiple rows and columns.
+                2D, 3D and nD types
+
+                write a program that stores five different subjects and marks of 10 students.
+                column - 5
+                rows - 10
+                int marks[][]=new int[5][10];
+        Write a program to find the largest and second largest number in an array and find smallest and second smallest number in array.
+
+                case 1 : 10  1   2   8   3   15  3
+                    Largest : 15
+                    Second Largest : 10
+                case 2: 1   1   1
+                    Largest: 1
+                    Second Largest: Second Largest not found
+
+        Write a program to merge two sorted array
+                array1 : 10  15  22  80
+                array2:  5   8   11  15  70  90
+
+                output:  5   8   10  11  15  15  20  70  80  90
+        Array class
+            java.util.Array 
+                Finding the elements
+                Sorting the elements
+                Searching for the elements
+                Converting the array elements to starting
+                

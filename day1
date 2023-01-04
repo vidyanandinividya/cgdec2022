@@ -1,0 +1,207 @@
+what need to start with programming
+    A computer
+    Programming Language Setup
+        Install Java Software (oracle)
+    Editor
+        Eclipse
+        Intellij IDEA
+        VS code
+        Notepad++
+        etc
+
+    javac is not recognized as internal/external command
+
+    check version
+        java --version
+    check java libraries
+        java 
+    check javac libraries
+        javac
+    
+    software center
+        install all the softwares
+    
+    install Java in your system
+    install Eclipse    
+
+    what make Java distinguishable?
+        simple
+        Object-oriented
+        Platform-independent
+        Robust
+        Portable
+        High-peformance
+
+    Applications of Java
+        Desktop Application
+        Web Application
+        Mobile Operating System like Android
+        Enbedded System
+        Robotics
+        Banking Application
+        Games
+JDK, JRE and JVM
+
+JDK - Java Development Kit
+    It contains tools such as compilers to develop the Java programs
+    A compiler converts the Java code into bytecode
+    javac - compile the java code
+        -- byte code
+JVM - Java Virtual Machine
+    java - run the byte code
+    It is a virtual machine that runs the Java bytecodes.
+JRE - Java Runtime Environment
+    It contains JVM, Class libraries and other supporting files.
+variable
+    A variable is used to store some value.
+
+    int a
+Data type
+    primitive 
+        byte
+        short
+        int
+        long
+        float
+        double
+        char
+        boolean
+
+    Non-primitive /Reference/ user-defined
+
+        String
+        Array
+        Interface
+        Class
+
+Comment Lines
+    is used to increase the readability of the program
+    is not compiled
+
+    -- single line 
+        // This is Single line comment
+    -- multi line 
+        /*
+            This is multi line comment
+            */
+    -- Document line
+        /**
+        *
+        */
+
+    0.1f == 0.1 false
+
+    0.1f is actually 0.1000000000
+
+    0.1 is actually 0.10000000000000000000000005585373673636378378
+
+    int num = 21;
+
+    int - data type
+
+    num - variable
+    
+    21 - Literal
+
+    Literals
+        Integer
+             
+            Decimal Integer - Digits from 0 to 9 (+ and -)
+
+            Octal Integer - Digits from 0 to 7 with a leading 0
+
+            Hexa-Decimal - started by 0x and may also include a character from a to f or A to F (it reprents numbers from 10 to 15)
+
+            Binary Integer - Base 2, whose digits consists of the numbers 0 and 1.
+            prefix 0b represnts the binary system
+
+
+        Character
+                enclosed in ' '
+        String
+            enclosed in  " "
+            "\n", "\t"
+        Boolean 
+
+        write a program to accept name age salary and phone number from the user and print it on the console.
+
+Operators
+    Arithematic Operators -- arithmetic operation
+    + - * / %
+    Relational Operators --checks the relationship  between two operands
+    ==
+    !=
+    >
+    <
+    >=
+    <=
+
+    Logical Operators - checks if the expressions is true or false
+    AND && -- true (if both the expression are true)
+    OR || -- false(if both the expression are false)
+    ! -- It is used to reverse a condition
+    
+    Assignment Operators
+    = += -= *= /= %=
+
+    Increment and Decrement Operators
+    ++ --
+    it always increases/ decreases the value by 1
+
+    a++
+    ++a
+    a--
+    --a
+
+    write a program to calculate the sum of the first and the second last digit of a 5 digit number.
+
+    ex - 12345
+    output - 1+4 =5
+
+    write a program to add 8 to the number 2345 and then divide it by 3. Now , the modulus of the qoutient is taken with 5 and then multiply the resultant value by 5. Display the result.
+
+    John has come to Mathew store to purchase some products
+    product         quantity
+    ItemA           2
+    ItemB           1
+    ItemC           3
+
+    cost of the products
+    product         Cost
+    ItemA           200
+    ItemB           75
+    ItemC           500
+
+    At the time John visisted the store, there was 10% discount on all product.
+    Finally a service tax of 5% is applicable on all products
+    calculate the amount John has to pay?
+
+    price = ((ItemA*2)+(ItemB)+(ItemC*3))
+    price = price - (.1*price)
+    price = price + (.05*price)
+
+    1866.375
+
+    Conditional Statement
+    if
+    if -- else
+    if -- else if -- else
+    switch -- case
+        to reduce the complexity and improve the readability of the code.
+    Implement a weekly to-do list that covers the following
+
+    Sunday -> Holiday
+    Monday -> Go for walk
+    Tuesday -> DO homework
+    Wednesday -> Do groccery shoping
+    Thursday -> Go for work
+    Friday -> Do cleaning
+    Saturday -> Take classes
+
+    Calculator Program In Java
+        Addition
+        Subtraction
+        Multiplication
+        Division
+        Square
+        Interest
