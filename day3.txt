@@ -1,0 +1,143 @@
+what is class in java?
+    It is a concept that maintains  a set of properties that encapsulate the meaning-making within that context.
+
+    class Car 
+        {
+            //declaration of attributes
+
+            private String modelName;
+            private String owner;
+            private int regNumber;
+
+
+
+            //declaration of public methods
+            public void startEngine()
+            {
+                //start the engine
+            }
+            public void accelerate()
+            {
+                //car is accelerating
+            }
+            public void stop()
+            {
+                //stop the car
+            }
+        }
+constructor
+    It initializes an instantiated object based on preconditions set by the caller.
+    It can be parameterized or specified without parameter.
+
+    A constructor is a specialized method that must be defined with:
+        the same name as the class.
+        Does not return an explicit type.
+        can not be static, abstract, synchronized and final
+
+There are two way how the private attributes can be accessed outside of the class
+    properties (getter and setter)
+    parameterized constructor
+
+toString()
+    This method of the Object class returns the string representation of an object in java.
+
+object 
+    AN object is a real world entity
+    An object contains
+        State - internal represnation of the state of an object
+        Behavior - method or actions associated with an object
+        Identity - name that is implemented with a unique ID
+    ways to create an Object
+        using the new keyword
+            it is the most direct form of object creation.
+            Car car=new Car();
+
+        using Class.forName(String className) method
+        
+        using Clone() method
+Typecasting
+
+    The process of converting one data-type to another data-type is termed as type casting.
+
+    Widening Typecasting
+        conversion of a lower data type into a higher one.
+        implicit typecasting / casting down
+        there is no possibility of data loss
+
+        - both the data types must be compatible with each other
+        - the targeted variable holding the type casted value must be larger than the value being type casted
+
+            double -> float -> long -> int -> short -> byte
+
+
+
+    Narrowing Typecasting
+        
+        converting larger data type into a lower one.
+        explicit typecasting or casting updation
+
+        not secure 
+        there is possibility of data loss
+        double val=100.245;
+        int num=(int)val; //100
+
+
+static variable
+
+        It is associated with a class rather than an instance.
+        These are shared across all instances of a class.
+        there is only one copy of static variable per class.
+
+        if any instances of a class modifies the value of a static variable, the change is reflected across all instances of the class.
+        These variables are memory efficient as they are not duplicated for each instance.
+
+        A class can be static but it should be a nested class
+
+            class A 
+                {
+                    static class B 
+                        {
+
+                        }
+                }
+
+        class Employee
+        {
+            private String employeeName;
+            private static String organizationName="Capgemini";
+        }
+
+        Static Method
+            It is also called as class method
+            It can be accessed directly by using the class name without creating any object of the class.
+            static variables can be accessed from both static and non-static methods.
+            static methods can access only static variables.
+        Static block
+            It gets called before the constructor of the class in which it is defined.
+            It gets executed exactly once when the class is loaded for the first time.
+        
+    Final keyword
+        The final variable cannot change/modified
+
+        The final method can not be overriden
+
+        The final class can not be subclassed
+    Final variable
+    
+    A field declared static and final is called constant
+
+    To make a class immutable the class must be declared as final
+        String str=new String("Hey"); //Hey
+        str=new String("world"); //world
+
+Todo Manager application.
+    add task into an array
+    update task in an array
+    delete task in an array
+    search a task from an array
+
+    Task -- POJO
+        TaskId (number auto generated)
+        TaskTitle (String entered by the user)
+        TaskText(String entered by the user)
+    use the array to store the task objects

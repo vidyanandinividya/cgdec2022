@@ -1,0 +1,180 @@
+String
+    It is basically an object that represents a sequence of character value.
+
+String candName="John"
+
+How to create a String Object
+    1. Using String Literal
+
+            String candName="John";
+        String Constant Pool / String Pool
+            The place in heap where the Strings are stored
+
+            String str1= "Capgemini";
+
+            String str2= "Capgemini";
+
+            String str3 = "xyz";
+
+                String Constant pool - Capgemini
+
+                String Constant pool - xyz
+    2. Using new Keyword
+            String str1= new String("Capgemini");
+
+            String str2= new String("Capgemini");
+        The main difference between creating a string using string literals and the new keyword is that whenever the string is created with new keyword a new object of string is created in the heap memory outside of the string constant pool
+
+    //unmodified string str
+    String str= "Happy Learning"
+    System.out.println(str) // Happy Learning
+
+    //modified  string str
+    str = str + "to all"
+    System.out.println(str) // Happy Learning to all
+
+     Happy Learning
+
+    str -- Happy Learning to All
+
+    write a program that takes your full name as input and displays the abbreviations of the first and middle names except the last name whihc is displayed as it is.
+        Ex - John Brett Roser   O/P - J.B.Roser
+    write a program to find the number of vowels, consonents, digits and white space character in string 
+
+    OOPs concept    
+        Flight Management System    
+            Passengers
+            Booking
+            Departure
+            Destination
+            Luggage Policy
+
+    OOPs Concepts
+        Inheritance
+        Polymorphism
+        Abstraction
+        Encapsulation
+
+            It can be defined as wrapping the code or methods (properties) and the related fields or variables together as a single unit (class or interface etc.).
+
+            It protects the sensitive data as well by restricting access to internal implementation details.
+
+        How to implement Encapsulation
+
+                Use the private access modifier to declare all the variables/fields of class
+
+                Define public getter and setter methods to read and modify/set the values of the private fields.
+        Inheritance
+            It is a concept in which one class acquires the properties and behaviors of another class.
+
+            It reprencts a parent-child relationship
+
+            It is an IS-A relationship
+
+            use the keyword extends to inherit the properties of a class
+
+            code reuability
+
+            Sub class/ derived class/ child class
+                It is the class that inherits the properties and behaviours of another class.
+
+            Super class/Base class / Parent class
+                It is the class whose properties and behaviours are inherited by the subclass.
+
+    Types of Inheritance
+        Single
+            This is the simplest form of inheritance, where one class inherits another class
+                A  ------- B
+        Multilevel
+            This is an extension to single inhertiance, where another class again inherits the subclass, which inherits the superclass
+                A --------- B --------- C
+        Hierarchial 
+            In this inheritance, a single superclass is inherited separately by two or more subclasses.
+                A ---------- B 
+                A ---------- C 
+                A ---------- D
+        Multiple
+            In this inheritance, a single class inherits from two different superclasses.
+            In java this type is invalid
+                A ---------- B 
+                C ---------- B
+
+        Hybrid
+            It is a combination of hierarchial and multiple inheritance.
+
+        this-- is used to call a constructor of this/ current class.
+
+        super -- is used to call the constructor of super class.
+
+        use of this keyword
+            it can be used to refer the current class instance variables
+
+            it can be passed as an argument in the method call representing the current object of the class.
+            return the current class instance from any of its instance variables
+            access instance and static variables of the current instance
+            passed as an argument in the constructor call.
+        
+        use of super keyword 
+            it is used to refer to an instance variable of the immediate parent class.
+            it is used to invoke a method of the immediate parent class
+            it is used to invoke a constructor of immediate parent class
+
+            this() and super() -- inside a same constructor ?
+            this() -- first line
+            super() -- first line
+
+    Association
+        in general, it refers to the relationship between any two entities.
+
+        one-to-one
+
+        one-to-many
+
+        many-to-one
+
+        many-to-many
+
+        Professor
+
+        Department
+
+        There are two forms of Association
+            Aggregation
+
+                association between a Country class and a Sportsperson class.
+
+                country has a list of Sportsperson that hails from that country
+
+                Both the Country and Sportsperson classes are independent although there is an association between them.
+
+                Aggregation is also known as weak association and loosely coupled
+
+                is also called as unidirectional association
+
+
+            Composition
+
+                association between Organization and Employee
+                
+                The classes can not exist independent of each other.
+                if the larger class which holds the objects of the smaller class is removed ,
+                the smaller class connot exist.
+
+                Composition is also known as strong association and tightly coupled
+
+            what is it called if an object has its own lifecycle and there is no owner - Association
+
+            what is it called where child object gets killed if parent object is killed - Composition
+
+            What is it called where object has its own lifecycle and child object cannot belong to another parent object  - Aggregation
+
+                Aggregation
+
+                Encapsulation
+
+                Composition
+
+                Association
+            using which keywords, you can access the methods, the variables and the constructors of the parent class in the child class - super
+
+            which keyword is used by a class to inherit another -- extends
