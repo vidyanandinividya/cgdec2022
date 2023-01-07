@@ -1,0 +1,160 @@
+Polymorphism
+    A single interface having multiple implementations is called Polymorphism
+    performing a single task in different ways
+
+Types of Polymorphism
+
+    static polymorphism - static Binding - Compile time polymorphism - Method Overloading
+Method Overloading
+    same method name with different parameters list.
+    parameters list should differ in either
+
+        Number of parameters
+
+        Data type of parameters
+
+        Sequence of data type of parameters
+
+
+    getCustomerByFirstNameAndDOB(String firstName, Date dob){.....}
+
+    getCustomerByAccountNumber(long accountNumber){.....}
+
+    getCustomerByPANNumber(String panNumber){.....}
+
+    getCustomerByFirstNameLastNameAndDOB(String firstName,String lastName, Date dob){.....}
+
+    getCustomerDetails(String firstName, Date dob){....}
+
+    getCustomerDetails(long accountNumber){....}
+
+    getCustomerDetails(String panNumber){....}
+
+    getCustomerDetails(String firstName,String lastName, Date dob){....}
+
+Advantage
+    only one method name will be use for different purposes
+
+    when number of overloaded method grows, Method overloading increases the readability of the program
+
+    in case of method overloading, method call to method definition is resolved at COMPILER level that is why it is called static polymorphism
+
+
+    Dynamic polymorphism - Dynamic Binding - Run time polymorphism - Method Overriding
+    Method Overriding
+    in case of method overriding, method call to method definition is resolved at JVM level that is why it is called dynamic polymorphism
+
+        class Parent
+        {
+            public void connect()
+            {
+                System.out.println("Doing connection in Parent way)
+            }
+        }
+        class Child extends Parent
+        {
+            @override
+            public void connect()
+            {
+                System.out.println("Doing connection in Child way)
+            }
+
+        }
+    Rules of Method Overriding
+        parameters that need to ve conside in case of Method Overriding
+
+            Access Specifier of method
+                Overriding method in Child class can either have same access specifier as that of Parent class method or can increase visibility but cannot decrease it.
+                private methods are not overridden
+
+            //parent class
+                protected void connect(){}
+
+            //child class
+                public void connect(){}
+                protected void connect(){}
+
+            Return type of method
+                Overriding method in Child class can either have same return type or should be subclass of return type declared in method of Super class
+            
+            //Parent class
+
+                protected Number connect(){}
+
+            //Child class
+
+                public    Integer connect(){}
+                protected Long connect(){}
+                protected Number connect(){}
+
+            Name of method
+                 Name of the overriding method in Child class must be exactly same as that of method declared in Parent class.
+
+            Arguments/parametrs of method
+                Total number and type of arguments present in overriding Child class must be exactly same as that of Parent class method.
+
+            Exception that method throws
+                Overriding method in Child class can throw any number of Unchecked Exception irrespctive of Parent class overriden method has declared any Checked/Unchecked Exception or not
+
+
+    when overloading does not occur?
+        More than one method with same name but different method signature and different number or type of parameters
+        More than one method with same name, same signature but different number of arguments.
+        More than one method with same name, same signature, same number of parameters but differnt type
+        More than one method with same name,same number of parameters and type but differnt signature
+
+Abstraction
+    it only show the implementations rather than showing the complete details.
+
+    is implemented in two ways
+        Abstract class (0-100% Abstraction)
+        Interface (100% Abstraction)
+
+    Abstract Class.
+        Scenario
+            service like BulkSMSSender,where we take orders from various telecom vendors like Airtel, Vodafone, BSNL etc.
+        is to manage Telecom Regulations for different conuntries where we are sending SMS.
+
+        public void establishConnectionWithYourTower() //method1
+        {
+            //connect using vendor way
+
+        }
+        public void destroyConnectionWithYourTower() //method2
+        {
+            //disconnect using vendor way
+        }
+        public void checkForDND() //method3
+        {
+            //check for number present in DND
+        }
+        public void checkForTelecomRules() //method4
+        {
+            //check for Telecom Rules
+        }
+        public void senSMS() //method5
+        {
+            establishConnectionWithYourTower();
+            checkForDND();
+            checkForTelecomRules();
+            //sending SMS to numbers
+            destroyConnectionWithYourTower();
+        }
+
+        Abstract class is used when you know something and rely on others for what you don't know (partial abstraction)
+Interface
+    use the keyword interface to declare an interface.
+    methods declared inside an interface are implicitly marked as public and abstract 
+    variables declared inside an interface are implicitly marked as public static final.
+    To use the interface, a class must implement it using implements keyword and override all the methods declared in the interface.
+    interface is used when you want to define a contract and you don't know anything about the implementation. (here it's total abstraction as you don't know anything)
+
+    Scenario
+        consider we want to start a service like makemytrip.com , where we are responsible for displaying the flights from various flight service company and place an order from customer.
+
+            -- Displaying flights available from vendor like "airasia","airindia","emirates"
+            -- Place and order for seat to respective vendor
+    
+    getAllAvailableFlights()
+
+    booking()
