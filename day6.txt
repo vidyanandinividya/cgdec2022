@@ -1,0 +1,81 @@
+Exception Handling
+
+    What is Exception Handling
+
+        It is a mechanism to handle unwanted interruption like exception and continue with normal flow of the program.
+
+
+        normal program flow ------- END
+
+        program flow in case of Error/Exception --> Error/Exception -->Handle Exception --> END
+
+    There are 2 types of problems that can occur at run time
+
+        Error
+            1. Compile time Error
+                Error that are known and catch at Compile time are Compile time error, It occurs mainly due to Syntax error.
+            2. Run time Error
+                Error that are unknown  at Compile time but occur at run time are Run time error.
+                Recursive call to method may lead to Stack overflow error
+        Exception
+            These are unwanted conditions that disrupt the normal flow of the program
+            1. Checked Exception
+                Exception that are occured at compile time
+                IOException
+                FileNotFoundException
+            2. Unchecked Exception
+                Exception that are not checked at compile time and occured at run time.
+                ArithmeticException
+                NullPointerException
+ Throwable - super class of Error and Exception
+ why we should handle the exception
+ how does JVM handles an Exception
+    Whenever an exception has occured inside a method, the method creates an exception object and hands it over to JVM
+    This Exception object contains
+        the name and description of the exception and the current state of the program where the exception has occured.
+Handling the exception
+    try
+        it is used to exceute doubtful statements which can throw exceptions
+        it can have multiple statements
+        it cannot be executed on itself, there has to be at least one catche block or finally block with a try block
+        when an exception occurs in try block, the appropriate exception object will be redirected to the catch block, this catch block will handle the exception according to statements in it and continue the further execution.
+        the control of execution goes from try block to the catch block once an exception occures
+
+    catch
+        It is used to give a solution or alternative for an exception
+        it can be used to handle the exception by declaring the type of exception within the parameter
+        the declared exception must be the parent class exception or the generated exception type in the exception class hierarchy or a user-defined exception.
+        you can use multiple catch block with a single try block
+
+    finally
+        It is associated with a try, catch block
+        it is executed every time irrespective of exception is thrown or not.
+        It is used to execute important statements such as closing statements, release the resources amd release memory
+        it can be used with try block with or without catch block 
+
+
+    try with resource (SE 7)
+
+        It allows to declare resources to be used in a try block with the assurance that the resources will be closed after the execution of that block.
+        The resources declared need to be implement the AutoClosable interface
+
+        Custom resource
+            the class should implement the Closable or AutoClosable interface and override the close method.
+
+    Custom Exception/ User defined exception
+        It is created by extending the class form Exception class.
+
+        class A extends Exception
+        {
+
+        }
+return statements have overwritting behavior
+    Finally block is guaranteed to be executed.
+    the return statement in the try block will be ovwewritten by the return statement in finally block.
+
+Enumeration /Enum 
+    enum constants cannot be overriden
+    enum doesn't support the creation of objects
+    enum can't extend other classes
+    enum can implement interfaces like class
+    
