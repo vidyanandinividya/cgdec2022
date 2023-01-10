@@ -1,0 +1,120 @@
+Collections and Generics
+Collections is a framework that stores and manipulates a group of objects
+    A collection is an object which represents a group of objects, known as its elements.
+Generics
+    It is a collection of one specific type of data.
+     provides type safety
+
+Collection  -- root interface on which the Collections Framework is built
+    List (interface)
+            It is used to store ordered collection of data and it may contain duplicates.
+            The elements can be accessed or inserted by their position in the list using zero-based indexing.
+        ArrayList
+            It is calles as dynamic arrays means it does not have a fixed size. 
+            Its size can be increased or decreased if elements are added or removed
+            It implements List interface.
+            It cannot be used to store primitive data types.
+        LinkedList
+            It is a linear data structure where elements are called as nodes
+            each node has two fields - data and next.
+            Data stores the actual piece of information and next points to the next node (address of the next node)
+            it is not synchronized
+        If you use random access more often, then ArrayList and vector is a good choice.
+        if you frequently make addition or deletion on the first poistion , Linked list is a better option.
+        Vector
+            It is thread safe.
+            It is used for dynamic arrays.
+        Stack
+            It works on the principle LIFO
+            push() - is used to put an object on the top of the stack
+            pop() - to remove and return the top element in the stack.
+            peek(),search() and empty()
+    Queue (interface)
+        Dequeue
+        Priority Queue
+        LinkedList --- ArrayDeque
+    Set (interface)
+        It defines an unordered collection
+        it cannot store duplicate values.
+        it is implemented by the classes like HasheedSet, LinkedHashSet and TreeSet
+        HashSet
+            This class implements the Set interface
+            Set<String> hashSet=new HashSet<String>();
+            hashSet.add("Hello");
+            HashSet -----> add("Hello") -----> HashMap("Hello",dummy)
+            HashMap map=new HashMap();
+            map.put("Hello",dummy)
+            Key --> get hashcode from key -> evaluate array index from the hascode --> 3
+            It uses a hash table for storage which usues a mechanism called Hashing.
+            In hashing, the information content of a key determines a unique value, called hash code.
+            The hash code is then used as an index, at which the data associated with the key is stored.
+            when we insert elements into the HashSet, it isi ot guaranteed that it gets stores in the same order.
+            we can store null values.
+            It is not synchronized
+
+        LinkedHashSet
+        SortedSet --(interface)
+        TreeSet
+            It uses a tree to store the elements
+            The access and retrieval time is very fast.
+            It contains unique elements
+
+class A {}
+
+clss B extends A{}
+
+
+A obj=new B(); //polymorphism
+A obj2;
+B obj1= (B) obj2;
+
+Map interface
+    It is an object which stores key and value pairs
+    It contains unique keys as the same key cannot have nultiple mappings
+    HashMap
+        It implements Map interface
+        It uses a hash table for sorting key-value pairs
+        if you want to access a value in a hash map , you must know its key
+
+Comparable and Comparator Interface
+    These can be used to sort custom objects and objects based on multiple data members.
+
+    Scenario
+        REST API (responsible for the communication between computer systems) that returns list of employees from the server
+
+         -- GET /employees 
+                returns all the employees ordered by id in ascending order
+         -- GET / employees ? sort=name 
+                returns all the employees order by name in ascending order
+         -- GET / employees? sort=age 
+                returns all the employees ordered by age in ascending order
+    Comparable Interface
+        It enables comparing an object with other objects of the same type
+        It is used for sorting objects by natural or default ordering
+
+        compareTo(T o1)
+
+        x.compareTo(y)
+
+            0 - if values in x and y are equal
+            negative - if the value of x is less than in y 
+            positive - if the value of x is greater than in y 
+    Comparator Interface
+        It is a functional interface which is used to sort objects
+        It is used for custom ordering where the class is unaware of the ordering logic
+        compare (T x, T y)
+            0 - if values in x and y are equal
+            negative - if the value of x is less than in y 
+            positive - if the value of x is greater than in y 
+    Generics
+        ? -- represents any
+
+            Upper bounded wildcards
+                 ? extends Number 
+
+            Number ---> Integer  ----> xyz
+
+            Lower bounded wildcards
+
+                ? super Number
+            
