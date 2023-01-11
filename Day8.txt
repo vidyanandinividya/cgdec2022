@@ -1,0 +1,91 @@
+Java 8 Features
+    forEach method
+    Functional Interface
+    Java Stream API
+    Lambda Expression 
+    Optional class
+    Method Reference
+    Java Time API
+
+
+Functional Programming
+    Declarative Programming is a paradigm in which we define what needs to be accomplished without defining how it has to be implemented.
+
+Lambda Expression   
+    It is an annonymous function that takes in parameters and returns a value.
+    It can only be used with a functional interface
+
+    () -> {};
+
+    () - Argument-list
+    -> - Lambda operator
+    {} - Body
+
+Lambda can access 
+    Instance varible
+    Local variable
+    Static variable
+Functional Interface
+    It is an interface with only one abstract method and it is annotated as @FunctionalInterface
+
+    It can have static and default methods
+
+    str -> System.out.println(str)
+Method Reference
+    It referes to the method via the use of an :: operator
+    It can execute only a single method call like a lambda expression but a shorter code.
+    static methods, instance methods and constructors
+    System.out::println 
+
+    :: - method Reference operator 
+Streams
+    It can be defined as a sequence of elements from a source (Collection or Array)
+
+Collections and Stream
+    A collection is an in-memory data structure to hold values 
+    Stream is data structure that is computed on-demand. It doesn't store data.
+    It operates on the source data structure and produce pipelined data that we can use and perform specific operations.
+    stream is designed for lambdas
+    Stream operations can either be executed sequentially or in parallel (parallel stream)
+Intermediate operations
+    filter() -
+            It is used to test stream elements for a condition and generate filtered list
+    map() -
+            It converts each element in the stream into another object via the given function
+
+    sorted()-   
+            It returns the sorted view of the stream
+Collectors 
+    After performing the intermediate operations on elements in the stream, we can collect the processed elements sgain into a Collection using stream Collector methods.
+
+Terminal operations
+    It returns the result of a certain type after processing all the stream elements
+
+Stream.forEach()
+        - iterate over all stream elements and perform some operations on each of them.
+Stream.collect()
+        - is used to receive elements from stream and store them in a collection
+Stream.count()
+        - it counts the number of elements in the stream 
+Stream.match()
+        - It is used to check whether a given predicate matches the stream elements
+        -- it returns boolean value
+Stream.reduce()
+        -- it is used to perform a reduction on the elements of the stream with the given function.
+
+Optional class
+    It is used to represent a value is present or absent.
+    Null checks are not required
+    No more NUllPointerException at run-time
+
+
+1.Get student with exact match name "john"
+2.Get student with matching address "1235"
+3.Get all students having mobile numbers 3333
+4.Get all students having mobile number 1233 and 1234
+5.Create a List<Student> from the List <TempStudent>
+6.convert List<Student> to List<String> of student name
+7.convert List<Student> to String
+8.Change the case of List<String>
+9.Sort List<String>
+10.Get all the students name in sorted List
