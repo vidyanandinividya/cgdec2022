@@ -1,0 +1,159 @@
+PostgreSQL - 5432
+
+    PostgreSQL server
+    pgAdmin4
+
+Database
+    It is an organized collection of structured information or data.
+    A database is controlled by Database Management System (DBMS)
+
+Types of Database
+    Relational Database
+        It is the most efficient way to access structured information.
+        The data is organized into a set of tables that has columns and rows.
+            MySql - Apache 
+            PostgreSQL - worldwide team of volunteers
+                It is an open-source database
+            Oracle - Oracle
+            Microsoft SQL server - Microsoft 
+            IBM Db2 - IBM 
+    Distributed Database
+    Object-oriented Database
+    Open-source Database
+    Centralized Database
+    Cloud Database
+    NoSQL Database
+            MongoDB
+    Hierachial Database
+    Network Database
+
+DDL (Data Definition Language)
+    These commands  are used to define the database
+        CREATE, DROP, ALTER, TRUNCATE, COMMENT, RENAME
+    CREATE  
+        It is used to either create a schema, tables or an index
+    
+    CREATE TABLE table_name(column1 datatype,column2 datatype(max_size),......);
+
+    ALTER
+        It is used to either add,modify or delete constraints and columns from a table
+    DROP
+        It is used to drop the complete schema ,table or columns
+    TRUNCATE
+        It is used to delete the data which is present inside a table, but the table doesn't get deleted
+    RENAME
+        It is used to rename one or more tables or columns
+Types of keys
+    Candiadte key
+        A candidate key is a combination of minimal sety of attributes which can uniquely identify a tuple.
+    Super key
+        A super key is the set of attributes which can uniquely identify a tuple.
+        a candiadte key is a super key but vice-versa isn't true
+    Primary key
+        A primary key is a set of attributes that can be used to uniquely identify every tuple.
+    Alternate key
+        All the candidate keys other than the primary key is called as an alternate key
+    Foreign key
+        An attribute that can take the values present as the values of some other attribute, is the foreign key to the attribute to which it refers.
+constraints 
+    NOT NULL
+        It ensures that a NULL value cannot be stored in a column
+    UNIQUE 
+        It ensures that all the values in a column are different
+    PRIMARY KEY = NOT NULL + UNIQUE 
+    CHECK
+        It ensures that all the values in a column satisfy a specific condition
+    DEFAULT
+        It consists of  a set of default values for a column when no value is specified
+    INDEX 
+        It is used to create and retrieve data from the database very quickly
+    FOREIGN KEY = Parent Table (Primary key ) --> Child Table (Foreign Key)
+
+DML (Data Manipulation Language)
+    These commands deal with the manipulation of data present in the database
+        SELECT, INSERT, UPDATE, DELETE, SET SEARCH_PATH
+    SET SEARCH_PATH
+        It is used to mention which schema has to be used to perform all the operations.
+    INSERT
+        It is used to insert new records in a table
+    UPDATE
+        It is used to modify the existing records in a table.
+    DELETE  
+        It is used to delete the existing records in a table
+    SELECT
+        it is used to select data from a database and the data returned is stored in a result table,called the result-set.
+Commands which can be used with SELECT statement
+
+    DISTINCT
+        It is used to return only distinct values .
+    ORDER BY 
+        It is used to sort the desired result in ascending or descending order.
+        By default, the results would be sorted in ascending order.
+    Aggregate function
+        It works on multiple rows and return single row as output
+        COUNT(),MIN(),MAX(),SUM(),AVG()
+    GROUP BY 
+        It is used with the aggregate functions to group the result-set by one or more columns.
+    HAVING clause
+        the WHERE clause cannot be used with aggregate functions.
+        for that you should use HAVING clause .
+
+PRIMARY KEY and FOREIGN KEY
+
+    Foreign key establishes referential integrity between the parent and the child tables.
+    The table that has a foreign key is called the child table and
+    The table that has a primary key column that is being referenced by the foreign key is called the parent table 
+
+    Department -- Parent Table
+
+        Dept_Id int (PK)
+        Dept_Name varchar(50)
+
+    Employee -- Child Table
+        Emp_Id int (PK)
+        Emp_Name varchar(50)
+        Manger_Id int
+        Hire_date date 
+        Salary int 
+        Dept_Id (fk)
+    referencial actions 
+        No Action 
+            It will produce an error indicating that the deletion or updation would create a forign key constraint violation.
+        RESTRICT
+            It will produce an error indicating that the deletion or updation would create a forign key constraint violation.
+        SET NULL 
+            when a foreign key is created with ON DELETE SET NULL or ON UPDATE SET NULL , then on delete or on update of data in the parent table, the foreign key column referncing row in the child table will be automatically set to NULL
+        SET DEFAULT
+            when a foreign key is created with ON DELETE SET DEFAULT or ON UPDATE SET DEFAULT , then on delete or on update of data in the parent table, the foreign key column referncing row in the child table will be automatically set to DEFAULT value if specified any
+        CASCADE
+             when a foreign key is created with ON DELETE CASCADE or ON UPDATE CASCADE , then on delete or on update of data in the parent table, the foreign key row of referncing row in the child table will be automatically deleted
+
+LIMIT, OFFSET and FETCH
+    LIMIT
+        It is used to retrieve a portion of the rows out of the complete rows present in the table.
+    OFFSET
+        It omits the number of rows you mention and then retrieves the rest portion of the rows
+    FETCH
+        It is used to fetch records from a table using a cursor;
+DCL (Data Control Language)
+    These commands deal with the permissions, rights and other controls of the database System
+        GRANT, REVOKE
+    GRANT   
+        It is used to provide user access privileges for the schema
+    REVOKE
+        It is used to withdraw user's access privileges given  by using the GRANT command
+TCL (TRansaction Control Language)
+    These commands deal with the transaction of the database.
+        BEGIN, COMMIT, ROLLBACK, SAVEPOINT
+BEGIN / BEGIN TRANSACTION / BEGIN transaction_name
+    It is used to start the transaction
+COMMIT / COMMIT TRANSACTION/ COMMENT transaction_name
+    It is used to save all the transactions to the database since the last commit or rollback command
+ROLLBACK / ROLLBACK TRANSACTION / ROLLBACK transaction_name / ROLLBACK TO savepoint_name
+    It is used to undo transactions since the last commit or rollback command
+SAVEPOINT
+    It defines a new savepoint within the current transaction
+RELEASE SAVEPOINT
+    It is used to remove a SAVEPOINT that you have created
+
+

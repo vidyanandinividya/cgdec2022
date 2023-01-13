@@ -1,0 +1,92 @@
+Multithreading and Concurrency
+
+    A thread is a lightweight smallest subpart of the process that can run independently and concurrently woth other parts of the same process.
+
+    Execution of multiple threads of the same process simultaneously is known as Multithreading
+
+    Multithreading reduces the time taken by the process for task completion and maximize CPU utilization.
+    All the threads of a process share a common mamory space.
+
+    Multithreading a thread created in two ways
+
+        extending Thread class
+            It uses more memory
+        implements Runnable interface
+            It requires less memory space
+    Lifecycle of a Thread
+        New state
+            The state when a thread is just created
+        Active state
+            A thread moves from the new state to the active state when the thread invokes the start() method.
+            In this state the thread can be in a runnable state or running state
+
+            Runnable state
+                When the thread is ready to run, it is moved from new state to runnable state.
+                In this state, the thread may be running or may be ready to run at any given instant of time.
+                In this state , there is a queue where the threads lie.
+            Running state
+                A thread is moved from runnable state to running state by the thread scheduler for its execution.
+                By the running state, we mean that the thread gets the CPU for its execution.
+                Always a fixewd duration of execution time is allocated to a thread.
+        Waiting or blocked state
+            Whenever a thread goes to an inactive state for some time, then we say that the thread is present in the waiting or blocked state.
+        Timed waiting state
+            The thread wait for a longer time
+        Terminated state
+            when the thread completes ots instruction cycle , the thread goes into termination state.
+    run() - used to act as a thread
+    start() - start the execution of a thread
+    join() 
+        - It allows one thread to wait until another thread completes its execution.
+    
+    Synchronization
+        It is the capability to control the access of multiple threads to any shared resource.
+
+        It helps in preventing thread interference
+        It helps to prevent Concurrency problem
+    Types of Synchronization
+        Process Synchronization
+
+        Thread Synchronization
+
+            Mutual Exclusive
+                A mutex or mutual exclusive helps only one thread to access the shared resource.
+                it can be achieved by   
+                    synchronized method
+                    synchronized block 
+                    sttaic synchronization
+                The synchronized keyword is only applicable for methods and blcoks.
+Concurrency
+    you can execute multiple tasks at the same time.
+
+    scenario
+        we have couple of arrays of numbers.
+        For each array, we want to know the sum of the numbers in an array.
+    Thread pool
+        It contains a number of ready to run but currently not active threads.
+            Giving a Runnable to the pool cause one of the thread calls the run() method of given Runnable.
+            After completing a task thread still exists and is in idle state.
+    Executors
+        This clas  is used for constructing thread pools
+        newCachedThreadPool() 
+            creates a pool in which new threads are created as needed and idle threads are kept for 60 seconds.
+        newFixedThreadPool()
+            contains a fixed set of threads, in which idle thread are kept indefinitely.
+    Disadvantages of Runnable interface
+        - It cannot return any value
+        - we cannot determine if a task is finished or not.
+        - we do not know if it has been completed normally or exceptionally.
+
+    Callable
+        - It returns any  value (non-primitive).
+        - It is functional interface with one abstract method call() which can throw exception 
+    Future
+        It acts as a bridge between threads.
+        To retrieve the result from the Future we need to call get() method.
+        It works in the "Push Paradigm"
+    ComputableFuture
+        It works in "Pull Paradigm".
+        It is an example of an asynchronous approach
+ 
+
+    
