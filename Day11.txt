@@ -1,0 +1,79 @@
+JDBC 
+    Java Database Connectivity
+    It ia an Application Programming Interface(API) with which we can connect Java applications to various databases.
+Types of JDBC Drivers
+    Type 1
+        It contains a mapping to another data access API    
+            JDBC-ODBC driver
+    Type 2
+        It is the implementation that uses client-side libraries of the target database.
+            native-API driver
+    Type 3
+        It uses middleware to convert JDBC calls into database-specific calls.
+            network protocol driver
+    Type 4
+        connects directly to a database by converting JDBC calls into database-specific calls
+            database protocol driver / thin driver
+
+        Advantage
+            It is platform-independent
+            gives better performance compared to other Types
+        Disadvantage
+            It's database specific - given each database has ots own specific protocol
+JDBC Components
+    DriverManager
+        It is used to manage the list of database drivers
+    Driver 
+        It handles the communication with the database server
+    Connection
+        It consists of all the methods required to connect with the database
+steps to create JDBC Application
+    import the packages
+    Register Driver & Open Connection
+    Execute the query
+    Extract data from result steps
+    clean up the environment
+
+Executing SQL Statements
+    Statement
+        It is used for executing static SQL Statements
+        executeQuery() - SELECT statements  -- ResultSet 
+        executeUpdate() -- updating data or the database structure -DML (INSERT, UPDATE, DELETE) -- integer
+        execute() -- it can be used for bothe the cases when the result is unknown  - boolean
+    PreparedStatement
+        It is used for dynamic sql statements
+        select * from employee where empname=? and empid=?
+    CallableStatement
+        It allows calling stored procedures.
+        store procedure - insertemployee()
+To query data from a table using JDBC
+    - Establish a database connection to the postgrsql server
+    - Create an instance of the Statement/PreparedStatement/CallableStatement object
+    - Execute a statement to get ResultSet object
+    - Process the ResultSet object
+    - Close the connection
+To insert a row into the table
+    - Establish a database connection to the postgrsql server
+    - Create a statement object from the connection object
+    - Execute the INSERT statement
+    - Close the database connection
+To update data in a table 
+    - Create a  database connection
+    - Create a  PreparedStatement object
+    - Execute the UPDATE statement by calling the executeUpdate() method of the PreparedStatement object.
+    - Close the database connection
+To delete data from the table
+    - Establish a database connection
+    - Create a PreparedStatement object
+    - Execute a DELETE statement
+    - Close the database connection
+Transaction
+    It is a set of statements executeed as a single unit.
+
+
+
+oracl.h
+    ODBC
+        Open Database Connectivity
+            any frontend can communicate with Database in an independent manner
+

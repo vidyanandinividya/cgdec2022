@@ -1,0 +1,95 @@
+JUnit
+    It is a Unit Testing Framework for Java
+    The Framework is used by Java Developers to write and execute tests
+    Every time a new code is added, all the test cases have to be re-executed
+Unit Testing
+    It refers to the testing of small chunks of codes
+    It helps in early identification of defects
+Two types of Unit Testing
+    Manual Testing
+        If the test cases are tested manually without any automated tool, it is manual testing
+        it is less reliable and time consuming
+    Automated Testing
+        If the test cases are tested by tool support, it is called automated testing.
+        It is more reliable and faster
+JUnit Installation
+Features of JUnit   
+    It is an open source network used to write and run tests
+    It provides annotations to identify test methods
+    It provides assertions to test expected results
+    It provides test runners to run the tests
+@Test
+    Tells JUnit which public void method can be run as a test case
+@Before
+    To execute some statements before each test case
+@After
+    To execute some statements after each test case
+@Ingnores
+    Used to ignore some statements during test execution
+@BeforeClass
+    To execute some statements before each test case
+@AfterClass
+    To execute some statements after each test case
+@Test(timeout=500)
+    used to set some time while executing the test
+@Test(expected=IllegalArgumentException.class)
+    used to handle some exceptions during test execution
+JUnit assertions
+    Assert is a method which is useful in determining Pass or Fail status of a test case.
+Text Fixture
+    It is a fixed state in a code or a set of fixed steps in a code that is used as a precondition and few other sets of code /steps that are used as a postcondition for all the tests.
+
+    setUp() method
+
+        - declare the instance variables for the common objects.
+        - to launch a browser with a specific URL at the first step
+    place under the @Before annotation
+
+    tearDown() method
+        -release the resources used by the test objects
+    place under the @after annotation
+
+    @Before
+    @Test
+    @After
+Test Suite
+    It allows to aggregate all test cases from multiple classes in one place and run it together.
+    @RunWith
+    @SuitClasses
+Parameterized Test
+    It is used to execute the same test over and over again using different values.
+
+    you can setup a test method that retrieves data from some data source.
+
+
+    String a, String b -> System.out.println(a+b);
+
+    () -> return;
+
+    (int i) -> i;
+
+    (int i) -> i++; return i;
+
+    java.util.stream.Stream;
+    java.uti.function.Consumer;
+    java.util.function.Predicate;
+    java.util.function.Supplier;
+    java.util.function.Function
+
+    public class xyz
+    {
+        public static void main(String args[])
+        {
+            BiFunction<String,String,Boolean> compareString =(x,y)->x.equals(y);
+            System.out.println(compareString.apply("CG","CG")); //output 1
+        }
+    }
+
+    compile time arror at line 1
+
+    prints : true
+
+    prints : false
+
+    prints: (x,y)->x.equals(y)
+    
