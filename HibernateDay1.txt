@@ -1,0 +1,125 @@
+Understanding JPA
+Difference between JPA and Hibernate
+Entity Relationship Mapping
+Entity Mapping annotations
+Mapping Operations
+Primary key generation
+CRUD operations with JPA
+Entity relationships 
+    one to one
+    one to many
+    many to many
+Entity Lifecycle
+Entity States
+JPQL
+JPA (Java Persistence API)
+    It is just a specification that facilitates object-relational mapping to manage relational data in Java application
+    It is used in the following application (Enterprise application)
+        Spring Boot application with DB
+        Java/Jakarta application with DB
+        Microservices (each service DB)
+        Desktop and mobile apps
+Object Relational Mapping (ORM)
+    Java apps with DB
+        1. JDBC
+        2. Data access services
+        3. Data access objects (DAO)
+Fetch List of Employees
+    a list of employee object (DAO)
+
+        Business Service    ----DTO ----- Data Service ------ JDBC
+It is a programming technique to map application domain model objects to the relational database table
+
+Hibernate Vs JPA
+    object relational mapping framework
+        Add a library to your class path
+        Make your classes to database tables
+        Make your member variables to columns
+        Use APIs to save / update / retrieve
+    
+    Java APplication --- Hibernate --- JDBC ---> database
+
+    @Table
+    Employee class 
+        @Column 
+        firstName
+        lastName
+        department
+        address
+            --- Mapping 
+                Employee class ---- Employee table
+                    firstName --- FIRST_NAME
+                    lastName ---- LAST_NAME
+    Mapping
+        XML configuration
+        Java annotations
+
+    Employee - class
+
+    Java application --- JPA Impl --- JDBC ----database
+
+    - Hibernate
+    - Toplink
+    - EclipseLink
+    - Apache OpenJPA
+
+        Using the API - calling method
+            -- get me all the Employees
+            - Result : List of Employees
+            -- save this employee instance
+            -- input - Employee instance
+            -- Result : corresponding row inserted / updated in the DB
+    Classes and Objects (Tables and Rows)
+
+    What's the problem with SQL ?
+
+        Developer productivity
+        Database independence
+            JPA is kind of consistent irrespective of what the database is
+        Caching and Performance
+Setting up
+    Typical JPA projects
+        Using Spring / Spring Boot integration
+    Steps
+        Simple Java project
+        Add JPA libraries
+        Tell the JPA library where our database exists
+        Do entity relational mapping
+        Use JPA  to persist an entity instance
+JPA Entity Class (Persistent class)
+    It should follow some rules
+        A no-arg constructor
+        Provide an identifier property
+        Declare getter and setter methods
+        prefer non-final class
+Hibernate configuration File (hibernate.cfg.xml)
+    under resources folder
+Hibernate utility class
+
+SessionFactoryImpl  ---> SessionFactory --->EntityManagerFactory
+
+SessionFactory  
+    It is the representation of the mapping of the application domain model to a database.
+    There should have only one associated SessionFactory for the application.
+
+Session 
+    A single-threaded, short-lived object conceptually modelling a "Unit of work"
+SessionImpl ----> EntityManager --> Session
+
+Transaction
+    A single-threaded, short-lived object is used by the application to demarcate individual physical transaction boundaries.
+TransactionImpl -----> Transaction ------> EntityTransaction
+
+The relationship that can be established between entities are:
+    one to one - 
+        @onetoone
+    Employee and Address
+
+    @onetoone(mappedby="address")
+    private Employee employee;
+    one to many / many to one -
+        @onetomany
+        @manytoone
+
+    many to many -
+        @manytomany
