@@ -1,0 +1,103 @@
+Maven
+    It is an open-source build tool (Apache) to build, publish and deploy several projects at once for better project management.
+    It allows you to build and document the lifecycle framework
+
+    It is based on Project Object Model(POM), this tool is used to add all the dependency required for the project.
+    It is basically an XML file which has all the information regarding project and configuration details.
+
+    groupId - a unique base name of the company or group that created the project
+    artifactId - a unique name of the project
+
+    one to one bidirectional
+        it has a  single target object reference in the source entity but additionally target entity has a reference back to the source entity as well.
+        @OneToOne is used in both source and target class
+        mappedBy element with one of the @OneToOne annotations.
+    
+    Fetch Type
+        Eager Loading
+            in which data initialization occurs on the spot
+        Lazy Loading
+            it is used to defer initialization of an object as long as it's possible
+
+    Course  -- one to many -- Reviews
+
+    Course_Detail  Eager
+    JOIN
+    Select course_id,course_name,review from course c join review r using c.course_id=r.course_id
+    1   -- 100
+    2   -- 10
+    3   -- 5
+
+    Course_Detail Lazy
+    Course_Detail 
+
+    HQL (Hibernate Query Language)
+        It is an object-oriented query language, similar to SQL, but instead of operating on tables and columns, HQL works with persistent objects and their properties.
+        HQL queries are translated by Hibernate into convential SQL queries, which in turns perform an action on a database.
+
+    Query   
+        It refers to JPQL/HQL query with syntax similar to SQL
+        It is generally used to execute DML statements (CRUD operations)
+        in JPQL 
+            entityManager.createQuery()
+        in HQL  
+            session.createQuery()
+    Native Query
+        it refers to actual SQL queries (referring to actual database object)
+        These queries are the SQL statements which can be directly executed in database using a  database client.
+    NamedQuery
+        It is the way you define your query by giving it a name.
+    TypedQuery
+        It will gives you an option to mention the type of entity when you create a query
+
+Inheritance Mapping
+    MappedSuperclass
+        It is implemented in the domain model only without reflecting it in the database schema.
+        In this strategy, the parent class can't be entities.
+        From database persepctive, the @MappedSuperclass Inheritance model is invisible sincle all the base class properties are simply copied to the database table mapped by the actual entity class.
+        @MappedSuperclass
+            It allows and entity to inherit the properties from a base class.
+        @MappedSuperclass
+        Account 
+
+            @Entity
+            DebitAccount
+
+            @Entity
+            CreditAccount 
+    Single table
+        The domain model class hierarchy is materialized into a single table that contains entities belongs to different class types
+        you can not use NOT NULL constrints on the column level.
+        @Entity
+        @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+        Account 
+
+            @Entity
+            DebitAccount
+
+            @Entity
+            CreditAccount 
+    Joined table
+        The base class and all the subclasses have their own database tables and fetching a subclass entity requires a join with the parent table as well.
+        @Entity
+        @Inheritance(strategy=InheritanceType.JOINED)
+        Account 
+
+            @Entity
+            DebitAccount
+
+            @Entity
+            CreditAccount 
+
+    Table per class
+        Each subclass has its own table containing both the subclass and the base class properties.
+
+        @Entity
+        @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+        Account 
+
+            @Entity
+            DebitAccount
+
+            @Entity
+            CreditAccount 

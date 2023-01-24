@@ -1,0 +1,6 @@
+entity/InstructorDetail.class
+dao/InstructorDao.class
+MainHibernate.class
+util/HibernateUtil.class
+entity/Instructor.class
+dao/InstructorDetailDao.class
