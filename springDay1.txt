@@ -1,0 +1,120 @@
+Spring
+    It is a very popular framework for building enterprise java applications
+
+J2EE
+    Client- Side presentation ---- Server-side presentation --- server side business logic --- database
+
+Release Timeline
+
+    Spring 
+
+        2004 - Spring 1.0 
+
+        Spring 5
+            Updated minimum requirements for Java 8 or higher
+            Deprecated legacy integration
+            Added new reactive programming framework : Spring WebFlux
+    lightweight development with Java POJOs
+    It promots loose coupling by making use of dependency injection (DI)
+    Aspect Oriented Programming (AOP)
+    It minimizes the boilerplate Java Codes
+
+    Dev Environment Overview
+        Softwares
+            Java Application Server (for Web Development) - Tomcat
+            IDE -- Eclipse
+    Tomcat Version
+        New version of Tomcat 10 was released to support Jakarta EE9
+            Renamed packages.javax.* to jakarta.*
+        Spring 5 currently does not support the new pacakges renaming Jakarta EE 9
+        As a result, Spring 5 does not currently work on Tomcat 10
+        use Tomcat 9 for you Spring 5 apps.
+Inversion Of Control(IoC)
+    The appoach of outsourcig the construction and management of objects.
+Dependency Injection (DI)
+    it is the ability of an object to supply dependencies of another object.
+    Class A 
+    Class B 
+
+    Client Class 
+        This is the dependent class and dependent on the service class
+    Service Class
+        This class provides a service to the client class
+    Injector Class
+        This class is responsible for injecting service class object into the client class.
+    constructor injection
+        Define the dependency interface and class
+        Create a constructor in your class for injections
+        Configure the dependency injection in the Spring config file.
+    setter injection/property injection 
+        Create setter method(s) in your class for injections
+        Configure the dependency injection in Spring config file
+
+    Email class
+        objects 
+            To emial address
+            From email address
+            subject
+            body of the email.
+    Enables an easy way to interconnect the components
+    application can be easily extended
+    unit testing is much easier
+    reduction of boiler plate code.
+
+        class person{
+            Address adress;
+
+            person (Address address)
+            {
+
+            }
+
+        }
+
+
+        class Address{}
+
+        BeanNotOFRequiredTypeException
+
+        CricketCoach  --------- FortuneService
+
+        propertiesFile -- emailAddress and team
+
+        Create Properties file
+        Load properties file in Spring config file
+        Reference value from Properties file
+        syntax : ${the prop name}
+
+    Bean Scope and Lifecycle
+        A scope refers to the lifecycle of a bean.
+    Singleton (default)
+        the spring container will creates only one instance of the bean, it's cached on memory.
+        and then all request for the bean will return a shared reference to the same bean.
+        there's only one bean, and everyone will share it 
+
+        Spring 
+            TrackCoach
+
+            Coach theCoach=context.getBean("myCoach",Coach.class);
+            Coach alphaCoach=context.getBean("myCoach",Coach.class);
+
+        prototype 
+            creates a new bean instance for each container request 
+
+        request
+            scoped to an HTTP web request. Only used for web apps
+        session
+            Scoped to an HTTP web session. Only used for web apps
+        global-session  
+            Scoped to a global HTTP web session. Only used for web apps    
+Bean Lifecycle
+    Container Started ---> Bean Instantiated --> Dependencies Injected ---> Internal Spring Processing --> your Custom Init method
+        Bean Is ready for use ---> Container is shutdown -->your custom destroy method --> stop
+
+Bean Lifecycle Methods / Hooks
+    you can add custom code during bean initialization
+        calling custom business logic
+        setting up handle to resources(db, socket, file)
+    you can add custom code during bean destruction
+        calling custom business logic
+        clean up handles to resources (db, socket, file)     
