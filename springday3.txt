@@ -1,0 +1,246 @@
+Spring Boot CRUD Application
+
+    Create a REST API for the Employee Directory
+        REST clients should be ablle to do 
+            Get a list of employees
+            Get a single employee by id
+            Add a new employee
+            Update an employee
+            Delete an employee
+Http Methods                            CRUD Action 
+POST    /api/employees                  Create a new employee
+GET     /api/employees                  Read a list of employees
+GET     /api/employees/{employeeId}     Read a single employee 
+PUT     /api/employees                  Update an existing employee 
+DELETE  /api/employees/{employeeId}     Delete an existing employee 
+
+1. Set up Database Environment
+2. Create Spring Boot project using Spring Initializer
+    Cretea the entity package 
+        @Entity 
+        --- map to database
+    Create the bean package
+        Model 
+            -- accept the entity class as an argument in constructor
+    Create the repository package
+        @Repository
+            -- interface which extends JPARepository / CRUDRepository/PaggingAndSortingRepository
+    Create the service package
+        @Service 
+            -- inject repository as a field injection
+    Create the helper package
+    Create the rest controller pacakge
+        @RestController
+            -- createa the rest api end points
+3. Get list of employees
+4. Get single employee by ID 
+5. Add a new employee 
+6. Update an existing employee 
+7. Delete an existing employee 
+
+Application Architecture
+    Employee REST Controller ---- Employee Service ------- Employee DAO (Hibernate) --------- Database
+
+Hibernate
+    DAO used a Hibernate Session Factory
+    Hibernate Session Factory needs a Data Source
+        - The data source defines database connection info
+
+    Employee DAO --- Session Factory --- Data Source --- Database
+Based on entries from Maven pom file
+    JDBC Driver:postgresql
+    Spring Data (ORM):spring-boot-starter-data-jpa
+DB connection info -- application.properties
+
+Entity Class (@Entity)
+    It represents an entity in the application.
+    This class is responsible for mapping the data from the database to the object model, as well as providing validation and data access logic.
+    It is used to define the structure of the application's data and make it accessible to other components in the application.
+Helper class
+    These are used to provide additional functionality to the appllication.
+    These classes are usually written to handle specific tasks, such as parsing data, performing calcualations or validating user input.
+    These classes provide a way to create reusable and maintainable code allowing developers to focus on business logic of their application.
+Repository (@Repository)
+    This class provides an interface for accessing data from database.
+    This class is responsible for interacting with the database and providing an interface for querying and saving data.
+    This class is used to provide an abstraction layer between the application and the database
+Service (@service)
+    This class provides a service to other components in the application.
+    It is responsible for implementing business logic and providing an API for other components to use.
+Rest Controller (@RestController)
+    This class is used to provide a clean, maintainable way to handle HTTP requests in the application.
+Response Entity
+    This class is used to represent an HTTP response.
+    It is used to send back data from the application in a structured format.
+    This class includes the status code, headers, and body of the response.
+    This class is used to provide a standard way to handle response from the application
+Path Variable (@Path Variable)
+    It is used to represent parameters that are passed in the URL.
+    It is used to provide a clean and maintainable way to handle URL parameters in the application 
+Request body (@Request body)
+    It is used to bind HTTP request body to a domain object in the method parameter.
+    It indicates that a method parameter should be bound to the body of the HTTP request.
+    The object is automatically deserialized from the request body and is also validated
+Swagger
+    It is an open source software framework for describing, documenting and visualizing REStful APIS.
+    It is used to create interactive API documentation, allowing developers to easily test, debug and document APIs.
+    Swagger also provides a UI for easily understanding and interacting with APIs
+Steps to implement Swagger in Spring Boot Application
+    Add the swagger dependencies
+    Configure the swagger2 bean
+    Annotate your API
+    Enable Swagger URLs
+    Customize the swagger configuration
+    Build and Run the Application
+
+what does spring boot provide to make it easier to build spring applications ?
+    An embedded tomcat server
+    a configuration processor
+    a dependency management system
+    a command line interface
+what is the @SpringBootApplication annotation used for
+    To enable Spring Boot auto-configuration
+    To define a Spring Boot starter class
+    To define a Spring Boot controller
+    To define a Spring Boot service
+
+He wants to apply the prototype scope in the bean named as 'person'
+
+    <bean id="person" class="com.test.Person" scope="Prototype"/>
+    <bean id="person" class="com.test.Person" scope="prototype"/>
+    <bean id="person" class="com.test.Person" PrototypeScope="true"/>
+    <bean id="person" class="com.test.Person" Scope="Prototype"/>
+
+Student Library system
+    @Component
+    public class Student
+    { private int id; private Address address;
+    }
+    @Component
+    public interface Address{}
+    @Component
+    public class PermanentAddress implements Address{}
+    @Component
+    public class MailingAddress implements Address{}
+inject dependency of PermanentAddress class into Student class.
+@Component                                          
+    public class Student
+    {  @Autowired
+        private Address address;}
+@Component
+    public class Student
+    {   @Autowired
+        @Qualifier("PermanentAddress")
+        private Address address;}
+@Component
+    public class Student
+    {   @Autowired
+        @Qualifier
+        private Address address;}
+@Component
+    public class Student
+    {   @Autowired
+        @Qualifier("permanentAddress")
+        private Address address; }   
+
+specify the scope of the bean using annotation
+@Component
+@Scope("request")
+public class Product{}
+
+@Component
+@Scope("session")
+public class Product{}
+
+@Component
+@Sessionscope
+public class Product{}
+
+@Component
+@SessionScope
+public class Product{}
+
+what is the purpose of the Spring IOC 
+    It instantiates and configure objects, supplied at runtime, to classes that define them as a dependency
+    it allows the front end code to manage the ResponseBody objects provided by backend REST API
+    It allows a database to define business objects via a shared schema at compile time
+    It facilitates a remote server to configure a local application
+
+@SpringBootApplication
+public class Application{
+    public static void main(String args[]){
+        SpringApplication.run(AppApplication.class,args);
+        System.out.println("startup");
+    }
+}
+public class Print implements InitializingBean{
+    @Override
+    public void afterPropertiesSet() throws Exception{
+        System.out.println("init");
+    }
+}
+Nothing will print
+startup init 
+init 
+startup
+
+my.property=Test 
+
+@Prop("${my.property}")
+private String val;
+
+@GetVal("my.property")
+private String val;
+
+@GetProperty("${my.property}")
+private String val;
+
+@Value("${my.property}")
+private String val;
+
+which property can be used to change the port of a spring application
+
+Port 
+spring.port
+spring.settings.port
+server.port
+
+what is the minimum required annotation you must use at the class to create a table in the database 
+
+@Id @Entity
+@Table @Entity @Id
+@Column @Entity @Table
+@Id @GeneratedValue
+
+Actutator
+    It provides several production-ready endpoints which can be used to monitor, manage and interact with your application.
+    It helps us to monitor the application metrics like memory, garbage collection, threads, cpu utilization etc.
+It helps us to understand the application performance, identify and troubleshoot any issue and make your application more secure.
+
+5 core concepts of Spring Security
+    Authentication
+    Authorization
+    Principal
+        currently logged in user
+    Granted Authority
+        granting the permisson to the authenticated users
+    Roles
+        categories for which you can grant the Authorization
+Authentication and Authorization
+Authentication is the process of verifying who a user is.
+It typically involves providing a username and password to the system in order to provide one's identity.
+Authorization is the process of determining whether a user has access to a particular resource.
+
+/user/{userId}
+ 
+@GetMapping("/users/{userId}")
+public ResponseEntity<User> getUserProfile(@PathVariable Long userId)
+{
+    User user=userService.findById(userId);
+    if(user==null)
+    {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+    return ResponseEntity.ok(user);
+}
+

@@ -1,0 +1,48 @@
+JSP, Servlet and MVC Design Pattern
+Java Annotaions
+    These are simply special labels or markers that are added to Java classes,
+    they actually give you the meta-data about the class.
+It basically allows you to minimize XML xonfiguration.
+
+Enable component scannong in spring config file
+Add the @Component annotation to your Java classes
+Retrieve the bean from Spring container
+
+Spring AutoWiring
+    for dependency injection, spring can use auto AutoWiring
+    Spring will look for a class that matches the property
+        matches by type : class or interface
+    spring will inject it automatically
+
+    Define the dependency interface and class
+    Create a constructor in your class for injections
+    Configure the dependency injection with @Autowired annotation
+
+    Create setter methods in your class for injections
+    configure the dependency injection with @Autowired Annotation
+
+    Field/Method injection
+        Configure the dependency injection with Autowired annotation
+            apply directly to the Field
+            No need of setter methods.
+Bean Scope
+    @Scope - Singleton or Proptotype
+Bean Lifecycle methods
+    @PostConstruct
+    @PreDestroy
+
+There are three ways of configuring the Spring container
+    full xml config where you list each bean in the xml file
+    xml component scan, and we made use of annotations 
+    java configuration class
+
+Define method to expose bean
+Inject bean dependencies
+Read Spring Java Configuration class
+Retrieve bean from Spring conatiner
+
+Spring Boot
+    it is a module in Spring Framework
+Lombok
+    Project Lombok is a java library tool that generates code for minimizing boilerplate code.
+    The library replaces the boilerplate code with annotations 
