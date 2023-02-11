@@ -1,6 +1,7 @@
 package com.example.projectdemo.entity;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,14 +25,17 @@ public class TripBooking {
 	private Integer tripBookingId;
 	private String fromLocation;
 	private String toLocation;
-	private LocalDateTime fromDateTime;
-	private LocalDateTime toDateTime;
+	private Date fromDateTime;
+	private Date toDateTime;
 	private Boolean status;
 	private Float distanceinKm ;
 	private Float bill;
 	private String payment;
 	@ManyToOne
-    @JoinColumn(name="userId", nullable=false)
-    private AbstractUser user;
+    @JoinColumn(name="customerId", nullable=false)
+    private Customer customer;
+	@ManyToOne
+    @JoinColumn(name="driverId", nullable=false)
+    private Driver driver;
 
 }

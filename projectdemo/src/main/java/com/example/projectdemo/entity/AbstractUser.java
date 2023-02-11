@@ -33,8 +33,7 @@ public class AbstractUser {
 	private String mobilenumber;
 	private String emailId;
 	private Float rating;
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-	private List<TripBooking> tripbooking;
+	
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "addressId")
     private Address address;

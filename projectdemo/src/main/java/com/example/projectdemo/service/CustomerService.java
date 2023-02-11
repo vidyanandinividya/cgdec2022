@@ -10,25 +10,26 @@ import com.example.projectdemo.entity.AbstractUser;
 import com.example.projectdemo.entity.Address;
 import com.example.projectdemo.entity.Customer;
 import com.example.projectdemo.repository.IAddressRepo;
+import com.example.projectdemo.repository.ICustomerRepo;
 import com.example.projectdemo.repository.IuserRepo;
 
 @Service
-public class UserService {
+public class CustomerService {
 	@Autowired
-	private IuserRepo repo;
+	private ICustomerRepo repo;
 	
 	@Autowired
 	private IAddressRepo addressRepo;
-	public List<AbstractUser> getAllUsers()
+	public List<Customer> getAllCustomers()
 	{
 		return repo.findAll();
 	}
-	public AbstractUser addUser(Customer user)
+	public Customer addCustomer(Customer customer)
 	{
-		Address address=addressRepo.findById(user.getAddress().getAddressid()).get();
-		user.setAddress(address);
+		Address address=addressRepo.findById(customer.getAddress().getAddressid()).get();
+		customer.setAddress(address);
 		
-		return repo.save(user);
+		return repo.save(customer);
 	}
 	
 

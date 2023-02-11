@@ -9,26 +9,28 @@ import org.springframework.stereotype.Service;
 import com.example.projectdemo.entity.AbstractUser;
 import com.example.projectdemo.entity.Address;
 import com.example.projectdemo.entity.Customer;
+import com.example.projectdemo.entity.Driver;
 import com.example.projectdemo.repository.IAddressRepo;
+import com.example.projectdemo.repository.IDriverRepo;
 import com.example.projectdemo.repository.IuserRepo;
 
 @Service
-public class UserService {
+public class DriverService {
 	@Autowired
-	private IuserRepo repo;
+	private IDriverRepo repo;
 	
 	@Autowired
 	private IAddressRepo addressRepo;
-	public List<AbstractUser> getAllUsers()
+	public List<Driver> getAllDrivers()
 	{
 		return repo.findAll();
 	}
-	public AbstractUser addUser(Customer user)
+	public Driver addDriver(Driver driver)
 	{
-		Address address=addressRepo.findById(user.getAddress().getAddressid()).get();
-		user.setAddress(address);
+		Address address=addressRepo.findById(driver.getAddress().getAddressid()).get();
+		driver.setAddress(address);
 		
-		return repo.save(user);
+		return repo.save(driver);
 	}
 	
 
